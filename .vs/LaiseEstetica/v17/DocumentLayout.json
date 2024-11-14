@@ -1,12 +1,89 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3357571C-3163-49B7-BF44-D9258059EED2}|LaiseEsteticaService\\Core\\Domain\\Domain\\Domain.csproj|c:\\users\\ricar\\documents\\github\\laiseesteticaback\\laiseesteticaservice\\core\\domain\\domain\\entities\\socialhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3357571C-3163-49B7-BF44-D9258059EED2}|LaiseEsteticaService\\Core\\Domain\\Domain\\Domain.csproj|solutionrelative:laiseesteticaservice\\core\\domain\\domain\\entities\\socialhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3357571C-3163-49B7-BF44-D9258059EED2}|LaiseEsteticaService\\Core\\Domain\\Domain\\Domain.csproj|C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\laiseesteticaservice\\core\\domain\\domain\\enums\\frequency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3357571C-3163-49B7-BF44-D9258059EED2}|LaiseEsteticaService\\Core\\Domain\\Domain\\Domain.csproj|solutionrelative:laiseesteticaservice\\core\\domain\\domain\\enums\\frequency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3357571C-3163-49B7-BF44-D9258059EED2}|LaiseEsteticaService\\Core\\Domain\\Domain\\Domain.csproj|C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\laiseesteticaservice\\core\\domain\\domain\\enums\\waterintake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3357571C-3163-49B7-BF44-D9258059EED2}|LaiseEsteticaService\\Core\\Domain\\Domain\\Domain.csproj|solutionrelative:laiseesteticaservice\\core\\domain\\domain\\enums\\waterintake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3357571C-3163-49B7-BF44-D9258059EED2}|LaiseEsteticaService\\Core\\Domain\\Domain\\Domain.csproj|C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\laiseesteticaservice\\core\\domain\\domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3357571C-3163-49B7-BF44-D9258059EED2}|LaiseEsteticaService\\Core\\Domain\\Domain\\Domain.csproj|solutionrelative:laiseesteticaservice\\core\\domain\\domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WaterIntake.cs",
+              "DocumentMoniker": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\LaiseEsteticaService\\Core\\Domain\\Domain\\Enums\\WaterIntake.cs",
+              "RelativeDocumentMoniker": "LaiseEsteticaService\\Core\\Domain\\Domain\\Enums\\WaterIntake.cs",
+              "ToolTip": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\LaiseEsteticaService\\Core\\Domain\\Domain\\Enums\\WaterIntake.cs",
+              "RelativeToolTip": "LaiseEsteticaService\\Core\\Domain\\Domain\\Enums\\WaterIntake.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T13:51:41.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SocialHistory.cs",
+              "DocumentMoniker": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\LaiseEsteticaService\\Core\\Domain\\Domain\\Entities\\SocialHistory.cs",
+              "RelativeDocumentMoniker": "LaiseEsteticaService\\Core\\Domain\\Domain\\Entities\\SocialHistory.cs",
+              "ToolTip": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\LaiseEsteticaService\\Core\\Domain\\Domain\\Entities\\SocialHistory.cs",
+              "RelativeToolTip": "LaiseEsteticaService\\Core\\Domain\\Domain\\Entities\\SocialHistory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T12:43:39.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Frequency.cs",
+              "DocumentMoniker": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\LaiseEsteticaService\\Core\\Domain\\Domain\\Enums\\Frequency.cs",
+              "RelativeDocumentMoniker": "LaiseEsteticaService\\Core\\Domain\\Domain\\Enums\\Frequency.cs",
+              "ToolTip": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\LaiseEsteticaService\\Core\\Domain\\Domain\\Enums\\Frequency.cs",
+              "RelativeToolTip": "LaiseEsteticaService\\Core\\Domain\\Domain\\Enums\\Frequency.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T12:36:21.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\LaiseEsteticaService\\Core\\Domain\\Domain\\Entities\\Customer.cs",
+              "RelativeDocumentMoniker": "LaiseEsteticaService\\Core\\Domain\\Domain\\Entities\\Customer.cs",
+              "ToolTip": "C:\\Users\\ricar\\Documents\\GitHub\\LaiseEsteticaBack\\LaiseEsteticaService\\Core\\Domain\\Domain\\Entities\\Customer.cs",
+              "RelativeToolTip": "LaiseEsteticaService\\Core\\Domain\\Domain\\Entities\\Customer.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAA4wBEAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T11:27:31.042Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
