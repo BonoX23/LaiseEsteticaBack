@@ -4,6 +4,7 @@ namespace Domain.Entities
 {
     public class SocialHistory
     {
+        public Guid Id { get; set; }
         public Frequency PhysicalActivity { get; set; }
         public int PhysicalActivityFrequency { get; set; }
         public string DaysOfTheWeek { get; set; }

@@ -6,5 +6,7 @@
         No = 2,
         Often = 3,
         Sometimes = 4,
+        Regular = 5,
+        Irregular = 6,
     }
 }
