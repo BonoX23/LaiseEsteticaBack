@@ -27,15 +27,7 @@ namespace Domain.Entities
         public string HeartProblemsReason { get; set; }
         public Frequency Pacemaker { get; set; }
         public OncologicalProblem? OncologicalProblemDetails { get; set; }
-        //public Frequency OncologicalProblems
-        //{
-        //    get => _oncologicalProblems;
-        //    set
-        //    {
-        //        _oncologicalProblems = value;
-        //        OncologicalProblemDetails = value == Frequency.Yes ? new OncologicalProblem() : null;
-        //    }
-        //}
+        public Frequency OncologicalProblems { get; set; }
 
         public void SetSurgeryReason(string reason)
         {
@@ -166,6 +158,25 @@ namespace Domain.Entities
             else
             {
                 HeartProblemsReason = null;
+            }
+        }
+        public void SetOncologicalProblemsReason(string location, string treatmentTime, string treatment)
+        {
+            if (OncologicalProblems == Frequency.Yes)
+            {
+                if (string.IsNullOrEmpty(OncologicalProblemDetails.Location) || 
+                    string.IsNullOrEmpty(OncologicalProblemDetails.TreatmentTime) || 
+                    string.IsNullOrEmpty(OncologicalProblemDetails.Treatment))
+                {
+                    throw new ArgumentException("The reason for oncological problems is mandatory.");
+                }
+
+                OncologicalProblemDetails = new OncologicalProblem(location, treatmentTime, treatment);
+            }
+
+            else
+            {
+                OncologicalProblemDetails = null;
             }
         }
     }
