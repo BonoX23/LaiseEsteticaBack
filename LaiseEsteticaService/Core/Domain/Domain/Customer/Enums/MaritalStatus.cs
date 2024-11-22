@@ -1,10 +1,9 @@
-﻿namespace Domain.Customer.Enums
+﻿namespace Domain.Customer.Enums;
+
+public enum MaritalStatus
 {
-    public enum MaritalStatus
-    {
-        Single = 1,
-        Married = 2,
-        StableUnion = 3,
-        Divorced = 4,
-    }
+    Single = 1,
+    Married = 2,
+    StableUnion = 3,
+    Divorced = 4,
 }

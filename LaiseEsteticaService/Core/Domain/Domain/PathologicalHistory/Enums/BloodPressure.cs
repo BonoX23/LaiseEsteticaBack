@@ -1,9 +1,8 @@
-﻿namespace Domain.PathologicalHistory.Enums
+﻿namespace Domain.PathologicalHistory.Enums;
+
+public enum BloodPressure
 {
-    public enum BloodPressure
-    {
-        Normal = 1,
-        LowPressure = 2,
-        HighPressure = 3,
-    }
+    Normal = 1,
+    LowPressure = 2,
+    HighPressure = 3,
 }

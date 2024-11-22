@@ -1,11 +1,10 @@
-﻿namespace Domain.SocialHistory.Enums
+﻿namespace Domain.SocialHistory.Enums;
+
+public enum WaterIntake
 {
-    public enum WaterIntake
-    {
-        lessThanOne = 1,
-        One = 2,
-        OneAndHalf = 3,
-        Two = 4,
-        MoreThanTwo = 5,
-    }
+    lessThanOne = 1,
+    One = 2,
+    OneAndHalf = 3,
+    Two = 4,
+    MoreThanTwo = 5,
 }

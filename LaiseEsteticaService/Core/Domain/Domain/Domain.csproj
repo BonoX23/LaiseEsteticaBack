@@ -10,7 +10,6 @@
     <Folder Include="Aesthetic\Ports\" />
     <Folder Include="Customer\Ports\" />
     <Folder Include="PathologicalHistory\Ports\" />
-    <Folder Include="ProfessionalEvaluation\Entities\" />
     <Folder Include="SocialHistory\Ports\" />
   </ItemGroup>
 
