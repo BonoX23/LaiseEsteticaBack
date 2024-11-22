@@ -1,6 +1,7 @@
 ﻿using Domain.Enums;
+using Domain.SocialHistory.Enums;
 
-namespace Domain.Entities
+namespace Domain.SocialHistory.Entities
 {
     public class SocialHistory
     {

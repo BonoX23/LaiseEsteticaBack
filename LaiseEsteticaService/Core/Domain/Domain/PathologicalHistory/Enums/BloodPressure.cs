@@ -1,4 +1,4 @@
-﻿namespace Domain.Enums
+﻿namespace Domain.PathologicalHistory.Enums
 {
     public enum BloodPressure
     {

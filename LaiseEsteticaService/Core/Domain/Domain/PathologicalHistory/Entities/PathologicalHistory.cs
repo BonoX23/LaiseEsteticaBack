@@ -1,7 +1,8 @@
 ﻿using Domain.Enums;
+using Domain.PathologicalHistory.Enums;
 using Domain.Utils;
 
-namespace Domain.Entities
+namespace Domain.PathologicalHistory.Entities
 {
     public class PathologicalHistory
     {
@@ -164,8 +165,8 @@ namespace Domain.Entities
         {
             if (OncologicalProblems == Frequency.Yes)
             {
-                if (string.IsNullOrEmpty(OncologicalProblemDetails.Location) || 
-                    string.IsNullOrEmpty(OncologicalProblemDetails.TreatmentTime) || 
+                if (string.IsNullOrEmpty(OncologicalProblemDetails.Location) ||
+                    string.IsNullOrEmpty(OncologicalProblemDetails.TreatmentTime) ||
                     string.IsNullOrEmpty(OncologicalProblemDetails.Treatment))
                 {
                     throw new ArgumentException("The reason for oncological problems is mandatory.");

@@ -1,6 +1,6 @@
-﻿using Domain.Enums;
+﻿using Domain.Customer.Enums;
 
-namespace Domain.Entities
+namespace Domain.Customer.Entities
 {
     public class Customer
     {
@@ -17,9 +17,10 @@ namespace Domain.Entities
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Complaint { get; set; }
-        public SocialHistory SocialHistory { get; set; }
-        public PathologicalHistory PathologicalHistory { get; set; }
-        //public AestheticHistory AestheticHistory { get; set; }
+        public SocialHistory.Entities.SocialHistory SocialHistory { get; set; }
+        public PathologicalHistory.Entities.PathologicalHistory PathologicalHistory { get; set; }
+        public AestheticHistory.Entities.AestheticHistory AestheticHistory { get; set; }
+
 
 
     }

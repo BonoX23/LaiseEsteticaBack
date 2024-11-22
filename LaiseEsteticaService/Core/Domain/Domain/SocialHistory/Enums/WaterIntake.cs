@@ -1,4 +1,4 @@
-﻿namespace Domain.Enums
+﻿namespace Domain.SocialHistory.Enums
 {
     public enum WaterIntake
     {
