@@ -12,4 +12,6 @@ public class ProfessionalEvaluation
     public IEnumerable<BiometricControl>? BiometricControls { get; set; }
     public string TreatmentProgram { get; set; }
     public IEnumerable<Protocols> Protocols { get; set; }
+    public Guid CustomerId { get; set; }
+    public Customer.Entities.Customer Customer { get; set; }
 }

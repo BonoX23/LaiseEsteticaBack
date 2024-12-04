@@ -10,4 +10,6 @@ public class AestheticHistory
     public Frequency Sunscreen { get; set; }
     public Frequency BodyCosmetics { get; set; }
     public string BodyCosmeticsReason { get; set; }
+    public Guid CustomerId { get; set; }
+    public Customer.Entities.Customer Customer { get; set; }
 }

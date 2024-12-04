@@ -1,6 +1,6 @@
 ﻿using Domain.Enums;
 
-namespace Domain.Utils;
+namespace Domain.PathologicalHistory.Entities;
 
 public class OncologicalProblem
 {

@@ -1,6 +1,5 @@
 ﻿using Domain.Enums;
 using Domain.PathologicalHistory.Enums;
-using Domain.Utils;
 
 namespace Domain.PathologicalHistory.Entities;
 
@@ -30,9 +29,6 @@ public class PathologicalHistory
             {
                 throw new ArgumentException("The reason for surgery is mandatory.");
             }
-
-            // Validações adicionais (tamanho mínimo, caracteres permitidos, etc.)
-
             Surgery.Reason = reason;
         }
 
