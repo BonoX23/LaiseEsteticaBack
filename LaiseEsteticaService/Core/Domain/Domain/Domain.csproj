@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Aesthetic\Ports\" />
+    <Folder Include="Customer\Ports\" />
+    <Folder Include="PathologicalHistory\Exceptions\" />
+    <Folder Include="PathologicalHistory\Ports\" />
+    <Folder Include="ProfessionalEvaluation\Exceptions\" />
+    <Folder Include="SocialHistory\Exceptions\" />
+    <Folder Include="SocialHistory\Ports\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+
 </Project>
