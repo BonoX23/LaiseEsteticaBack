@@ -13,4 +13,6 @@ public class SocialHistory
     public WaterIntake WaterIntake { get; set; }
     public Frequency AlcoholicBeverage { get; set; }
     public Frequency Smoker { get; set; }
+    public Guid CustomerId { get; set; }
+    public Customer.Entities.Customer Customer { get; set; }
 }

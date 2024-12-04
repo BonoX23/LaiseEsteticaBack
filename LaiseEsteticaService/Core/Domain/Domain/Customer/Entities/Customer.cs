@@ -20,4 +20,5 @@ public class Customer
     public SocialHistory.Entities.SocialHistory SocialHistory { get; set; }
     public PathologicalHistory.Entities.PathologicalHistory PathologicalHistory { get; set; }
     public AestheticHistory.Entities.AestheticHistory AestheticHistory { get; set; }
+    public ProfessionalEvaluation.Entities.ProfessionalEvaluation ProfessionalEvaluation { get; set; }
 }
