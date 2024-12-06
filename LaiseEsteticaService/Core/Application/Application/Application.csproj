@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Customer\Commands\" />
+    <Folder Include="Customer\Responses\" />
+    <Folder Include="Customer\Queries\" />
+    <Folder Include="Customer\Ports\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Domain\Domain.csproj" />
+  </ItemGroup>
+
 </Project>
