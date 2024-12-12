@@ -39,7 +39,6 @@ public class LaiseEsteticaDbContext :
                 .WithMany(r => r.UserRoles)
                 .HasForeignKey(ur => ur.UserId)
                 .IsRequired();
-        }
-        );
+        });
     }
 }
