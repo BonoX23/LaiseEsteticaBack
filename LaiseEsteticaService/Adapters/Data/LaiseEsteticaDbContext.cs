@@ -40,5 +40,24 @@ public class LaiseEsteticaDbContext :
                 .HasForeignKey(ur => ur.UserId)
                 .IsRequired();
         });
+
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.Surgery);
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.MedicalTreatment);
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.Medication);
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.MedicationAllergy);
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.MenstrualCycle);
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.Contraceptives);
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.EndocrineProblems);
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.HeartProblems);
+        modelBuilder.Entity<PathologicalHistory>()
+            .OwnsOne(ph => ph.OncologicalProblemDetails);
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Domain.Enums;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.PathologicalHistory.Entities;
 
+[Owned]
 public class OncologicalProblem
 {
     public string Location { get; set; }
