@@ -1,5 +1,8 @@
-﻿namespace Domain.ProfessionalEvaluation.Entities;
+﻿using Microsoft.EntityFrameworkCore;
 
+namespace Domain.ProfessionalEvaluation.Entities;
+
+[Owned]
 public class BiometricControl
 {
     public DateTime Date { get; set; }

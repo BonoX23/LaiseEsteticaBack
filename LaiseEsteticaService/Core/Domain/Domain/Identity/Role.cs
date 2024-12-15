@@ -2,7 +2,7 @@
 
 namespace Domain.Identity;
 
-public class Role : IdentityRole<int>
+public class Role : IdentityRole<Guid>
 {
     public List<UserRole> UserRoles { get; set;}
 }

@@ -2,7 +2,7 @@
 
 public class ProfessionalEvaluation
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public Hypotonia? Hypotonia { get; set; }
     public IEnumerable<Feg>? Fegs { get; set; }
     public IEnumerable<Adiposity>? Adiposities { get; set; }

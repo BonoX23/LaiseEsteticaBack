@@ -5,7 +5,7 @@ namespace Domain.SocialHistory.Entities;
 
 public class SocialHistory
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public Frequency PhysicalActivity { get; set; }
     public int PhysicalActivityFrequency { get; set; }
     public string DaysOfTheWeek { get; set; }

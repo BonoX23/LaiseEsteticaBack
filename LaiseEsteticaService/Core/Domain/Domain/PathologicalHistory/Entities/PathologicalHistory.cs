@@ -5,7 +5,7 @@ namespace Domain.PathologicalHistory.Entities;
 
 public class PathologicalHistory
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public Surgery Surgery { get; set; }
     public MedicalTreatment MedicalTreatment { get; set; }
     public Medication Medication { get; set; }
