@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(LaiseEsteticaDbContext))]
-    partial class LaiseEsteticaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241218040045_TableAdjustment3")]
+    partial class TableAdjustment3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -254,99 +257,6 @@ namespace Data.Migrations
                     b.ToTable("PathologicalHistories");
                 });
 
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.Adiposity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("AdiposityFeature")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ProfessionalEvaluationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfessionalEvaluationId");
-
-                    b.ToTable("Adiposity");
-                });
-
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.BiometricControl", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Breeches")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("DownperAbdomen")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Hip")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("LeftArm")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("LeftThigh")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<Guid>("ProfessionalEvaluationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("RightArm")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("RightThigh")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("UpperAbdomen")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Waist")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfessionalEvaluationId");
-
-                    b.ToTable("BiometricControl");
-                });
-
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.Feg", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("FegFeatures")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FegIntensity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ProfessionalEvaluationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfessionalEvaluationId");
-
-                    b.ToTable("Feg");
-                });
-
             modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.ProfessionalEvaluation", b =>
                 {
                     b.Property<Guid>("Id")
@@ -373,51 +283,6 @@ namespace Data.Migrations
                         .IsUnique();
 
                     b.ToTable("ProfessionalEvaluations");
-                });
-
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.Protocols", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ProfessionalEvaluationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ProtocolCompleted")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfessionalEvaluationId");
-
-                    b.ToTable("Protocols");
-                });
-
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.StretchMarks", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ProfessionalEvaluationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("StretchMarksFeature")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfessionalEvaluationId");
-
-                    b.ToTable("StretchMarks");
                 });
 
             modelBuilder.Entity("Domain.SocialHistory.Entities.SocialHistory", b =>
@@ -816,33 +681,6 @@ namespace Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.Adiposity", b =>
-                {
-                    b.HasOne("Domain.ProfessionalEvaluation.Entities.ProfessionalEvaluation", null)
-                        .WithMany("Adiposities")
-                        .HasForeignKey("ProfessionalEvaluationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.BiometricControl", b =>
-                {
-                    b.HasOne("Domain.ProfessionalEvaluation.Entities.ProfessionalEvaluation", null)
-                        .WithMany("BiometricControls")
-                        .HasForeignKey("ProfessionalEvaluationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.Feg", b =>
-                {
-                    b.HasOne("Domain.ProfessionalEvaluation.Entities.ProfessionalEvaluation", null)
-                        .WithMany("Fegs")
-                        .HasForeignKey("ProfessionalEvaluationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.ProfessionalEvaluation", b =>
                 {
                     b.HasOne("Domain.Customer.Entities.Customer", "Customer")
@@ -851,12 +689,111 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("Domain.ProfessionalEvaluation.Entities.Hypotonia", "Hypotonia", b1 =>
+                    b.OwnsMany("Domain.ProfessionalEvaluation.Entities.Adiposity", "Adiposities", b1 =>
                         {
                             b1.Property<Guid>("ProfessionalEvaluationId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<Guid>("Id")
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<int>("AdiposityFeature")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Location")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("ProfessionalEvaluationId", "Id");
+
+                            b1.ToTable("Adiposity");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProfessionalEvaluationId");
+                        });
+
+                    b.OwnsMany("Domain.ProfessionalEvaluation.Entities.BiometricControl", "BiometricControls", b1 =>
+                        {
+                            b1.Property<Guid>("ProfessionalEvaluationId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<decimal>("Breeches")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<DateTime>("Date")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<decimal>("DownperAbdomen")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<decimal>("Hip")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<decimal>("LeftArm")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<decimal>("LeftThigh")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<decimal>("RightArm")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<decimal>("RightThigh")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<decimal>("UpperAbdomen")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<decimal>("Waist")
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.HasKey("ProfessionalEvaluationId", "Id");
+
+                            b1.ToTable("BiometricControl");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProfessionalEvaluationId");
+                        });
+
+                    b.OwnsMany("Domain.ProfessionalEvaluation.Entities.Feg", "Fegs", b1 =>
+                        {
+                            b1.Property<Guid>("ProfessionalEvaluationId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<int>("FegFeatures")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("FegIntensity")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Location")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("ProfessionalEvaluationId", "Id");
+
+                            b1.ToTable("Feg");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProfessionalEvaluationId");
+                        });
+
+                    b.OwnsOne("Domain.ProfessionalEvaluation.Entities.Hypotonia", "Hypotonia", b1 =>
+                        {
+                            b1.Property<Guid>("ProfessionalEvaluationId")
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<string>("Location")
@@ -873,27 +810,70 @@ namespace Data.Migrations
                                 .HasForeignKey("ProfessionalEvaluationId");
                         });
 
+                    b.OwnsMany("Domain.ProfessionalEvaluation.Entities.Protocols", "Protocols", b1 =>
+                        {
+                            b1.Property<Guid>("ProfessionalEvaluationId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<DateTime>("Date")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("ProtocolCompleted")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("ProfessionalEvaluationId", "Id");
+
+                            b1.ToTable("Protocols");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProfessionalEvaluationId");
+                        });
+
+                    b.OwnsMany("Domain.ProfessionalEvaluation.Entities.StretchMarks", "StretchMarks", b1 =>
+                        {
+                            b1.Property<Guid>("ProfessionalEvaluationId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<string>("Location")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<int>("StretchMarksFeature")
+                                .HasColumnType("int");
+
+                            b1.HasKey("ProfessionalEvaluationId", "Id");
+
+                            b1.ToTable("StretchMarks");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProfessionalEvaluationId");
+                        });
+
+                    b.Navigation("Adiposities");
+
+                    b.Navigation("BiometricControls");
+
                     b.Navigation("Customer");
 
+                    b.Navigation("Fegs");
+
                     b.Navigation("Hypotonia");
-                });
 
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.Protocols", b =>
-                {
-                    b.HasOne("Domain.ProfessionalEvaluation.Entities.ProfessionalEvaluation", null)
-                        .WithMany("Protocols")
-                        .HasForeignKey("ProfessionalEvaluationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                    b.Navigation("Protocols");
 
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.StretchMarks", b =>
-                {
-                    b.HasOne("Domain.ProfessionalEvaluation.Entities.ProfessionalEvaluation", null)
-                        .WithMany("StretchMarks")
-                        .HasForeignKey("ProfessionalEvaluationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("StretchMarks");
                 });
 
             modelBuilder.Entity("Domain.SocialHistory.Entities.SocialHistory", b =>
@@ -966,19 +946,6 @@ namespace Data.Migrations
             modelBuilder.Entity("Domain.Identity.User", b =>
                 {
                     b.Navigation("UserRoles");
-                });
-
-            modelBuilder.Entity("Domain.ProfessionalEvaluation.Entities.ProfessionalEvaluation", b =>
-                {
-                    b.Navigation("Adiposities");
-
-                    b.Navigation("BiometricControls");
-
-                    b.Navigation("Fegs");
-
-                    b.Navigation("Protocols");
-
-                    b.Navigation("StretchMarks");
                 });
 #pragma warning restore 612, 618
         }

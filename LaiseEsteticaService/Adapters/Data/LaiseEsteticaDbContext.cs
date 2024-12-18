@@ -45,6 +45,8 @@ public class LaiseEsteticaDbContext :
 
         ConfigureCustomerRelationships(modelBuilder);
         ConfigurePathologicalHistory(modelBuilder);
+        ConfigureProfessionalEvaluation(modelBuilder);
+
     }
 
     private void ConfigureCustomerRelationships(ModelBuilder modelBuilder)
@@ -141,4 +143,36 @@ public class LaiseEsteticaDbContext :
         pathologicalHistoryEntity.OwnsOne(ph => ph.HeartProblems);
         pathologicalHistoryEntity.OwnsOne(ph => ph.OncologicalProblemDetails);
     }
+    private void ConfigureProfessionalEvaluation(ModelBuilder modelBuilder)
+    {
+        var professionalEvaluationEntity = modelBuilder.Entity<ProfessionalEvaluation>();
+
+        professionalEvaluationEntity.OwnsOne(pe => pe.Hypotonia);
+
+        professionalEvaluationEntity
+            .HasMany(pe => pe.Fegs)
+            .WithOne()
+            .HasForeignKey(f => f.ProfessionalEvaluationId);
+
+        professionalEvaluationEntity
+            .HasMany(pe => pe.Adiposities)
+            .WithOne()
+            .HasForeignKey(a => a.ProfessionalEvaluationId);
+
+        professionalEvaluationEntity
+            .HasMany(pe => pe.StretchMarks)
+            .WithOne()
+            .HasForeignKey(sm => sm.ProfessionalEvaluationId);
+
+        professionalEvaluationEntity
+            .HasMany(pe => pe.BiometricControls)
+            .WithOne()
+            .HasForeignKey(bc => bc.ProfessionalEvaluationId);
+
+        professionalEvaluationEntity
+            .HasMany(pe => pe.Protocols)
+            .WithOne()
+            .HasForeignKey(p => p.ProfessionalEvaluationId);
+    }
+
 }

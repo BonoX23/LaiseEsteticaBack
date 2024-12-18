@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿namespace Domain.ProfessionalEvaluation.Entities;
 
-namespace Domain.ProfessionalEvaluation.Entities;
-
-[Owned]
 public class BiometricControl
 {
+    public Guid Id { get; set; } = Guid.NewGuid();
     public DateTime Date { get; set; }
     public decimal UpperAbdomen { get; set; }
     public decimal DownperAbdomen { get; set; }
@@ -15,4 +13,5 @@ public class BiometricControl
     public decimal LeftThigh { get; set;}
     public decimal RightArm { get; set; }
     public decimal LeftArm { get; set; }
+    public Guid ProfessionalEvaluationId { get; set; }
 }
