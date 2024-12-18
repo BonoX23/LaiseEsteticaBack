@@ -1,12 +1,12 @@
-﻿using Domain.Enums;
+﻿using Application.Customer.Dtos;
+using Domain.Enums;
 using Domain.SocialHistory.Enums;
-using Domain.Utils;
 
-namespace Domain.SocialHistory.Entities;
+namespace Application.SocialHistory.Dtos;
 
-public class SocialHistory : ICustomerEntity
+public class SocialHistoryDto
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; }
     public Frequency PhysicalActivity { get; set; }
     public int PhysicalActivityFrequency { get; set; }
     public string DaysOfTheWeek { get; set; }
@@ -15,5 +15,5 @@ public class SocialHistory : ICustomerEntity
     public Frequency AlcoholicBeverage { get; set; }
     public Frequency Smoker { get; set; }
     public Guid CustomerId { get; set; }
-    public Customer.Entities.Customer Customer { get; set; }
+    public CustomerDto CustomerDto { get; set; }
 }
