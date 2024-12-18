@@ -1,9 +1,10 @@
 ﻿using Domain.Enums;
 using Domain.SocialHistory.Enums;
+using Domain.Utils;
 
 namespace Domain.SocialHistory.Entities;
 
-public class SocialHistory
+public class SocialHistory : ICustomerEntity
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public Frequency PhysicalActivity { get; set; }

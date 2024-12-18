@@ -1,9 +1,10 @@
 ﻿using Domain.Enums;
 using Domain.PathologicalHistory.Enums;
+using Domain.Utils;
 
 namespace Domain.PathologicalHistory.Entities;
 
-public class PathologicalHistory
+public class PathologicalHistory : ICustomerEntity
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public Surgery Surgery { get; set; }

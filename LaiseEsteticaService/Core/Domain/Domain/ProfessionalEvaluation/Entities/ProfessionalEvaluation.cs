@@ -1,6 +1,8 @@
-﻿namespace Domain.ProfessionalEvaluation.Entities;
+﻿using Domain.Utils;
 
-public class ProfessionalEvaluation
+namespace Domain.ProfessionalEvaluation.Entities;
+
+public class ProfessionalEvaluation : ICustomerEntity
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public Hypotonia? Hypotonia { get; set; }

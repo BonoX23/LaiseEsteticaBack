@@ -14,7 +14,6 @@
     <Folder Include="ProfessionalEvaluation\Exceptions\" />
     <Folder Include="SocialHistory\Exceptions\" />
     <Folder Include="SocialHistory\Ports\" />
-    <Folder Include="Utils\" />
   </ItemGroup>
 
   <ItemGroup>
