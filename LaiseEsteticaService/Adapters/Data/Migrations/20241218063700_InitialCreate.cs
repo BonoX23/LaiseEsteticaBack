@@ -15,8 +15,7 @@ namespace Data.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -30,8 +29,7 @@ namespace Data.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -69,7 +67,7 @@ namespace Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<int>(type: "int", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -90,7 +88,7 @@ namespace Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -112,7 +110,7 @@ namespace Data.Migrations
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -129,8 +127,8 @@ namespace Data.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -153,7 +151,7 @@ namespace Data.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -174,7 +172,7 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Complaint = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -189,7 +187,7 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AestheticHistory",
+                name: "AestheticHistories",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -202,9 +200,9 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AestheticHistory", x => x.Id);
+                    table.PrimaryKey("PK_AestheticHistories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AestheticHistory_Customers_CustomerId",
+                        name: "FK_AestheticHistories_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
@@ -258,6 +256,7 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Hypotonia_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Hypotonia_Type = table.Column<int>(type: "int", nullable: true),
                     Hypotonia_Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Observations = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -305,15 +304,14 @@ namespace Data.Migrations
                 name: "Adiposity",
                 columns: table => new
                 {
-                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AdiposityFeature = table.Column<int>(type: "int", nullable: false),
+                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Adiposity", x => new { x.ProfessionalEvaluationId, x.Id });
+                    table.PrimaryKey("PK_Adiposity", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Adiposity_ProfessionalEvaluations_ProfessionalEvaluationId",
                         column: x => x.ProfessionalEvaluationId,
@@ -326,9 +324,7 @@ namespace Data.Migrations
                 name: "BiometricControl",
                 columns: table => new
                 {
-                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpperAbdomen = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DownperAbdomen = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -338,11 +334,12 @@ namespace Data.Migrations
                     RightThigh = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     LeftThigh = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     RightArm = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    LeftArm = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    LeftArm = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BiometricControl", x => new { x.ProfessionalEvaluationId, x.Id });
+                    table.PrimaryKey("PK_BiometricControl", x => x.Id);
                     table.ForeignKey(
                         name: "FK_BiometricControl_ProfessionalEvaluations_ProfessionalEvaluationId",
                         column: x => x.ProfessionalEvaluationId,
@@ -355,16 +352,15 @@ namespace Data.Migrations
                 name: "Feg",
                 columns: table => new
                 {
-                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FegFeatures = table.Column<int>(type: "int", nullable: false),
                     FegIntensity = table.Column<int>(type: "int", nullable: false),
+                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Feg", x => new { x.ProfessionalEvaluationId, x.Id });
+                    table.PrimaryKey("PK_Feg", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Feg_ProfessionalEvaluations_ProfessionalEvaluationId",
                         column: x => x.ProfessionalEvaluationId,
@@ -377,15 +373,14 @@ namespace Data.Migrations
                 name: "Protocols",
                 columns: table => new
                 {
-                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProtocolCompleted = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ProtocolCompleted = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Protocols", x => new { x.ProfessionalEvaluationId, x.Id });
+                    table.PrimaryKey("PK_Protocols", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Protocols_ProfessionalEvaluations_ProfessionalEvaluationId",
                         column: x => x.ProfessionalEvaluationId,
@@ -398,15 +393,14 @@ namespace Data.Migrations
                 name: "StretchMarks",
                 columns: table => new
                 {
-                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StretchMarksFeature = table.Column<int>(type: "int", nullable: false),
+                    ProfessionalEvaluationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StretchMarks", x => new { x.ProfessionalEvaluationId, x.Id });
+                    table.PrimaryKey("PK_StretchMarks", x => x.Id);
                     table.ForeignKey(
                         name: "FK_StretchMarks_ProfessionalEvaluations_ProfessionalEvaluationId",
                         column: x => x.ProfessionalEvaluationId,
@@ -416,8 +410,13 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AestheticHistory_CustomerId",
-                table: "AestheticHistory",
+                name: "IX_Adiposity_ProfessionalEvaluationId",
+                table: "Adiposity",
+                column: "ProfessionalEvaluationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AestheticHistories_CustomerId",
+                table: "AestheticHistories",
                 column: "CustomerId",
                 unique: true);
 
@@ -461,9 +460,19 @@ namespace Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BiometricControl_ProfessionalEvaluationId",
+                table: "BiometricControl",
+                column: "ProfessionalEvaluationId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Customers_UserId",
                 table: "Customers",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feg_ProfessionalEvaluationId",
+                table: "Feg",
+                column: "ProfessionalEvaluationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PathologicalHistories_CustomerId",
@@ -478,10 +487,20 @@ namespace Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Protocols_ProfessionalEvaluationId",
+                table: "Protocols",
+                column: "ProfessionalEvaluationId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SocialHistories_CustomerId",
                 table: "SocialHistories",
                 column: "CustomerId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StretchMarks_ProfessionalEvaluationId",
+                table: "StretchMarks",
+                column: "ProfessionalEvaluationId");
         }
 
         /// <inheritdoc />
@@ -491,7 +510,7 @@ namespace Data.Migrations
                 name: "Adiposity");
 
             migrationBuilder.DropTable(
-                name: "AestheticHistory");
+                name: "AestheticHistories");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");

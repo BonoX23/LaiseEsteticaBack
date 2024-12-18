@@ -174,5 +174,4 @@ public class LaiseEsteticaDbContext :
             .WithOne()
             .HasForeignKey(p => p.ProfessionalEvaluationId);
     }
-
 }
