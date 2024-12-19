@@ -1,10 +1,11 @@
-﻿using Domain.Utils;
+﻿using Application.Customer.Dtos;
+using Domain.ProfessionalEvaluation.Entities;
 
-namespace Domain.ProfessionalEvaluation.Entities;
+namespace Application.ProfessionalEvaluation.Dtos;
 
-public class ProfessionalEvaluation : ICustomerEntity
+public class ProfessionalEvaluationDto
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; }
     public Hypotonia? Hypotonia { get; set; }
     public IEnumerable<Feg>? Fegs { get; set; }
     public IEnumerable<Adiposity>? Adiposities { get; set; }
@@ -15,5 +16,5 @@ public class ProfessionalEvaluation : ICustomerEntity
     public string TreatmentProgram { get; set; }
     public IEnumerable<Protocols> Protocols { get; set; }
     public Guid CustomerId { get; set; }
-    public Customer.Entities.Customer Customer { get; set; }
+    public CustomerDto CustomerDto { get; set; }
 }
