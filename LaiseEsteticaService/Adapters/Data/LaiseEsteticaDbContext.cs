@@ -48,13 +48,10 @@ namespace Data
 
             ConfigureCustomerRelationships(modelBuilder);
 
-            ConfigureEntityWithOneToOneRelationship<SocialHistory>(modelBuilder);
-            ConfigureEntityWithOneToOneRelationship<PathologicalHistory>(modelBuilder);
-            ConfigureEntityWithOneToOneRelationship<AestheticHistory>(modelBuilder);
-            ConfigureEntityWithOneToOneRelationship<ProfessionalEvaluation>(modelBuilder);
-
-            ConfigurePathologicalHistory(modelBuilder);
-            ConfigureProfessionalEvaluation(modelBuilder);
+            ConfigureOneToOneRelationships(modelBuilder, c => c.SocialHistory);
+            ConfigureOneToOneRelationships(modelBuilder, c => c.PathologicalHistory, ConfigurePathologicalHistoryDetails);
+            ConfigureOneToOneRelationships(modelBuilder, c => c.AestheticHistory);
+            ConfigureOneToOneRelationships(modelBuilder, c => c.ProfessionalEvaluation, ConfigureProfessionalEvaluationDetails);
         }
 
         private void ConfigureCustomerRelationships(ModelBuilder modelBuilder)
@@ -76,75 +73,79 @@ namespace Data
 
         private void ConfigureOneToOneRelationship<TEntity>(
             EntityTypeBuilder<Customer> builder,
-            Expression<Func<Customer, TEntity>> navigationExpression)
+            Expression<Func<Customer, TEntity>> relatedEntity)
             where TEntity : class, ICustomerEntity
         {
-            builder.HasOne(navigationExpression)
-                .WithOne()
+            builder.HasOne(relatedEntity)
+                .WithOne(e => e.Customer)
                 .HasForeignKey<TEntity>(e => e.CustomerId)
-                .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
-        private void ConfigureEntityWithOneToOneRelationship<TEntity>(ModelBuilder modelBuilder) where TEntity : class, ICustomerEntity
+        private void ConfigureOneToOneRelationships<TEntity>(
+            ModelBuilder modelBuilder, 
+            Expression<Func<Customer, TEntity>> relatedEntity, 
+            Action<EntityTypeBuilder<TEntity>> additionalConfig = null)
+            where TEntity : class, ICustomerEntity
         {
             modelBuilder.Entity<TEntity>(entity =>
             {
                 entity.HasKey(e => e.Id);
 
-                entity.HasOne<Customer>()
-                    .WithOne()
+                entity.HasOne(e => e.Customer)
+                    .WithOne(relatedEntity)
                     .HasForeignKey<TEntity>(e => e.CustomerId)
-                    .IsRequired()
                     .OnDelete(DeleteBehavior.Cascade);
+
+                additionalConfig?.Invoke(entity);
             });
         }
-
-        private void ConfigurePathologicalHistory(ModelBuilder modelBuilder)
+        private void ConfigurePathologicalHistoryDetails(EntityTypeBuilder<PathologicalHistory> pathologicalHistory)
         {
-            var pathologicalHistoryEntity = modelBuilder.Entity<PathologicalHistory>();
-
-            pathologicalHistoryEntity.OwnsOne(ph => ph.Surgery);
-            pathologicalHistoryEntity.OwnsOne(ph => ph.MedicalTreatment);
-            pathologicalHistoryEntity.OwnsOne(ph => ph.Medication);
-            pathologicalHistoryEntity.OwnsOne(ph => ph.MedicationAllergy);
-            pathologicalHistoryEntity.OwnsOne(ph => ph.MenstrualCycle);
-            pathologicalHistoryEntity.OwnsOne(ph => ph.Contraceptives);
-            pathologicalHistoryEntity.OwnsOne(ph => ph.EndocrineProblems);
-            pathologicalHistoryEntity.OwnsOne(ph => ph.HeartProblems);
-            pathologicalHistoryEntity.OwnsOne(ph => ph.OncologicalProblemDetails);
+            pathologicalHistory.OwnsOne(ph => ph.Surgery);
+            pathologicalHistory.OwnsOne(ph => ph.MedicalTreatment);
+            pathologicalHistory.OwnsOne(ph => ph.Medication);
+            pathologicalHistory.OwnsOne(ph => ph.MedicationAllergy);
+            pathologicalHistory.OwnsOne(ph => ph.MenstrualCycle);
+            pathologicalHistory.OwnsOne(ph => ph.Contraceptives);
+            pathologicalHistory.OwnsOne(ph => ph.EndocrineProblems);
+            pathologicalHistory.OwnsOne(ph => ph.HeartProblems);
+            pathologicalHistory.OwnsOne(ph => ph.OncologicalProblemDetails);
         }
 
-        private void ConfigureProfessionalEvaluation(ModelBuilder modelBuilder)
+        private void ConfigureProfessionalEvaluationDetails(EntityTypeBuilder<ProfessionalEvaluation> professionalEvaluationEntity)
         {
-            var professionalEvaluationEntity = modelBuilder.Entity<ProfessionalEvaluation>();
-
             professionalEvaluationEntity.OwnsOne(pe => pe.Hypotonia);
 
             professionalEvaluationEntity
                 .HasMany(pe => pe.Fegs)
                 .WithOne()
-                .HasForeignKey(f => f.ProfessionalEvaluationId);
+                .HasForeignKey(f => f.ProfessionalEvaluationId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             professionalEvaluationEntity
                 .HasMany(pe => pe.Adiposities)
                 .WithOne()
-                .HasForeignKey(a => a.ProfessionalEvaluationId);
+                .HasForeignKey(a => a.ProfessionalEvaluationId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             professionalEvaluationEntity
                 .HasMany(pe => pe.StretchMarks)
                 .WithOne()
-                .HasForeignKey(sm => sm.ProfessionalEvaluationId);
+                .HasForeignKey(sm => sm.ProfessionalEvaluationId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             professionalEvaluationEntity
                 .HasMany(pe => pe.BiometricControls)
                 .WithOne()
-                .HasForeignKey(bc => bc.ProfessionalEvaluationId);
+                .HasForeignKey(bc => bc.ProfessionalEvaluationId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             professionalEvaluationEntity
                 .HasMany(pe => pe.Protocols)
                 .WithOne()
-                .HasForeignKey(p => p.ProfessionalEvaluationId);
+                .HasForeignKey(p => p.ProfessionalEvaluationId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
