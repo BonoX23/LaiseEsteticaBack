@@ -1,7 +1,10 @@
-﻿namespace Domain.ProfessionalEvaluation.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Domain.ProfessionalEvaluation.Entities;
 
 public class BiometricControl
 {
+    [Key]
     public Guid Id { get; set; } = Guid.NewGuid();
     public DateTime Date { get; set; }
     public decimal UpperAbdomen { get; set; }

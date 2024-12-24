@@ -7,6 +7,7 @@ namespace Domain.ProfessionalEvaluation.Entities;
 [Owned]
 public class Hypotonia : BodyRegion
 {
+
     public Guid Id { get; set; } = Guid.NewGuid();
     public HypotoniaType Type { get; set; }
 }

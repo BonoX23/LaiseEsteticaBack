@@ -1,4 +1,5 @@
 ﻿using Domain.Customer.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Application.Identity.Dtos;
 
@@ -15,7 +16,13 @@ public class UserDto
     public string State { get; set; }
     public string ZipCode { get; set; }
     public string Occupation { get; set; }
-    public string Phone { get; set; }
+
+    [Required]
+    [Phone]
+    public string PhoneNumber { get; set; }
+
+    [Required]
+    [EmailAddress]
     public string Email { get; set; }
     public string Password { get; set; }
 }

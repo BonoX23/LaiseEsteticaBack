@@ -1,23 +1,48 @@
 ﻿using Domain.Enums;
 using Domain.PathologicalHistory.Enums;
 using Domain.Utils;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain.PathologicalHistory.Entities;
 
 public class PathologicalHistory : ICustomerEntity
 {
+    [Key]
     public Guid Id { get; set; } = Guid.NewGuid();
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Surgery Surgery { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public MedicalTreatment MedicalTreatment { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Medication Medication { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public MedicationAllergy MedicationAllergy { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Frequency BowelFunction { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public MenstrualCycle MenstrualCycle { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Contraceptives Contraceptives { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Frequency SuspectedPregnancy { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public BloodPressure BloodPressure { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Endocrine EndocrineProblems { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public HeartProblems HeartProblems { get; set; }
+
     public OncologicalProblem? OncologicalProblemDetails { get; set; }
     public Guid CustomerId { get; set; }
     public Customer.Entities.Customer Customer { get; set; }
