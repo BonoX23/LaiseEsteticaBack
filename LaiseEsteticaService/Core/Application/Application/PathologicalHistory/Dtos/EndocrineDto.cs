@@ -1,10 +1,8 @@
 ﻿using Domain.PathologicalHistory.Enums;
-using Microsoft.EntityFrameworkCore;
 
-namespace Domain.PathologicalHistory.Entities;
+namespace Application.PathologicalHistory.Dtos;
 
-[Owned]
-public class Endocrine
+public class EndocrineDto
 {
     public EndocrineProblems EndocrineProblems { get; set; }
     public string? OtherEndocrineProblems { get; set; }

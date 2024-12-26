@@ -10,10 +10,10 @@ public class CustomerDto
 {
     public Guid Id { get; set; }
     public Guid UserId { get; set; }
-    public UserDto UserDto { get; set; }
+    public UserDto User { get; set; }
     public string Complaint { get; set; }
-    public SocialHistoryDto SocialHistoryDto { get; set; }
-    public PathologicalHistoryDto PathologicalHistoryDto { get; set; }
-    public AestheticHistoryDto AestheticHistoryDto { get; set; }
-    public ProfessionalEvaluationDto ProfessionalEvaluationDto { get; set; }
+    public SocialHistoryDto SocialHistory { get; set; }
+    public PathologicalHistoryDto PathologicalHistory { get; set; }
+    public AestheticHistoryDto AestheticHistory { get; set; }
+    public ProfessionalEvaluationDto ProfessionalEvaluation { get; set; }
 }

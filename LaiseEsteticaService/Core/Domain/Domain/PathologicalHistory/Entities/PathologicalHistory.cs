@@ -10,171 +10,75 @@ public class PathologicalHistory : ICustomerEntity
     [Key]
     public Guid Id { get; set; } = Guid.NewGuid();
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Surgery Surgery { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public MedicalTreatment MedicalTreatment { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Medication Medication { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public MedicationAllergy MedicationAllergy { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Frequency BowelFunction { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public MenstrualCycle MenstrualCycle { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Contraceptives Contraceptives { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Frequency SuspectedPregnancy { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public BloodPressure BloodPressure { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Endocrine EndocrineProblems { get; set; }
 
-    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public HeartProblems HeartProblems { get; set; }
 
     public OncologicalProblem? OncologicalProblemDetails { get; set; }
     public Guid CustomerId { get; set; }
     public Customer.Entities.Customer Customer { get; set; }
 
-    public void SetSurgeryReason(string reason)
+    public void SetReason(Frequency frequency, string reason, ref string targetProperty, string errorMessage)
     {
-        if (Surgery.Frequency == Frequency.Yes)
+        if (frequency == Frequency.Yes)
         {
             if (string.IsNullOrEmpty(reason))
             {
-                throw new ArgumentException("The reason for surgery is mandatory.");
+                throw new ArgumentException(errorMessage);
             }
-            Surgery.Reason = reason;
+            targetProperty = reason;
         }
-
         else
         {
-            Surgery.Reason = null;
+            targetProperty = null;
         }
     }
-    public void SetMedicalTreatment(string reason)
-    {
-        if (MedicalTreatment.Frequency == Frequency.Yes)
-        {
-            if (string.IsNullOrEmpty(reason))
-            {
-                throw new ArgumentException("The medical treatment is mandatory.");
-            }
-            MedicalTreatment.Reason = reason;
-        }
 
-        else
-        {
-            MedicalTreatment.Reason = null;
-        }
-    }
-    public void SetMedicationReason(string reason)
-    {
-        if (Medication.Frequency == Frequency.Yes)
-        {
-            if (string.IsNullOrEmpty(reason))
-            {
-                throw new ArgumentException("The reason for medication is mandatory.");
-            }
-            Medication.Reason = reason;
-        }
-
-        else
-        {
-            Medication.Reason = null;
-        }
-    }
-    public void SetMedicationAllergyReason(string reason)
-    {
-        if (MedicationAllergy.Frequency == Frequency.Yes)
-        {
-            if (string.IsNullOrEmpty(reason))
-            {
-                throw new ArgumentException("The reason for medication allergy is mandatory.");
-            }
-            MedicationAllergy.Reason = reason;
-        }
-
-        else
-        {
-            MedicationAllergy.Reason = null;
-        }
-    }
-    public void SetMenstrualCyclePrediction(string reason)
-    {
-        if (MenstrualCycle.Frequency == Frequency.Yes)
-        {
-            if (string.IsNullOrEmpty(reason))
-            {
-                throw new ArgumentException("The menstrual cycle prediction is mandatory.");
-            }
-            MenstrualCycle.Reason = reason;
-        }
-
-        else
-        {
-            MenstrualCycle.Reason = null;
-        }
-    }
-    public void SetWhichContraceptive(string reason)
-    {
-        if (Contraceptives.Frequency == Frequency.Yes)
-        {
-            if (string.IsNullOrEmpty(reason))
-            {
-                throw new ArgumentException("Use of contraceptives is mandatory.");
-            }
-            Contraceptives.Reason = reason;
-        }
-
-        else
-        {
-            Contraceptives.Reason = null;
-        }
-    }
     public void SetOtherEndocrineProblems(string reason)
     {
         if (EndocrineProblems.EndocrineProblems == Enums.EndocrineProblems.Other)
         {
             if (string.IsNullOrEmpty(reason))
             {
-                throw new ArgumentException("Other Endocrine Problems is mandatory.");
+                throw new ArgumentException("Outros problemas endócrinos são obrigatório.");
             }
             EndocrineProblems.OtherEndocrineProblems = reason;
         }
-
         else
         {
             EndocrineProblems.OtherEndocrineProblems = null;
         }
     }
-    public void SetHeartProblemsReason(string reason)
-    {
-        if (HeartProblems.Frequency == Frequency.Yes)
-        {
-            if (string.IsNullOrEmpty(reason))
-            {
-                throw new ArgumentException("The reason for Heart Problems is mandatory.");
-            }
-            HeartProblems.Reason = reason;
-        }
 
-        else
-        {
-            HeartProblems.Reason = null;
-        }
-    }
     public void SetOncologicalProblemsReason(string location, string treatmentTime, string treatment)
     {
         if (OncologicalProblemDetails.OncologicalProblems == Frequency.Yes)
@@ -183,12 +87,11 @@ public class PathologicalHistory : ICustomerEntity
                 string.IsNullOrEmpty(OncologicalProblemDetails.TreatmentTime) ||
                 string.IsNullOrEmpty(OncologicalProblemDetails.Treatment))
             {
-                throw new ArgumentException("The reason for oncological problems is mandatory.");
+                throw new ArgumentException("A causa dos problemas oncológicos são obrigatórios.");
             }
 
             OncologicalProblemDetails = new OncologicalProblem(location, treatmentTime, treatment);
         }
-
         else
         {
             OncologicalProblemDetails = null;

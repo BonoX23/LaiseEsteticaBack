@@ -15,5 +15,5 @@ public class SocialHistoryDto
     public Frequency AlcoholicBeverage { get; set; }
     public Frequency Smoker { get; set; }
     public Guid CustomerId { get; set; }
-    public CustomerDto CustomerDto { get; set; }
+    public CustomerDto Customer { get; set; }
 }

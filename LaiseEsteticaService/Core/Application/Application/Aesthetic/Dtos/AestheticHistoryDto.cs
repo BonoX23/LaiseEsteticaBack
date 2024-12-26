@@ -12,6 +12,6 @@ namespace Application.Aesthetic.Dtos
         public Frequency BodyCosmetics { get; set; }
         public string BodyCosmeticsReason { get; set; }
         public Guid CustomerId { get; set; }
-        public CustomerDto CustomerDto { get; set; }
+        public CustomerDto Customer { get; set; }
     }
 }
