@@ -13,7 +13,7 @@ public class AestheticHistory : ICustomerEntity
     public Frequency CosmeticSurgery { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigtório.")]
-    public string CosmeticSurgeryReason { get; set; }
+    public required string CosmeticSurgeryReason { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Frequency Sunscreen { get; set; }
@@ -22,9 +22,9 @@ public class AestheticHistory : ICustomerEntity
     public Frequency BodyCosmetics { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigtório.")]
-    public string BodyCosmeticsReason { get; set; }
+    public required string BodyCosmeticsReason { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Guid CustomerId { get; set; }
-    public Customer.Entities.Customer Customer { get; set; }
+    public required Customer.Entities.Customer Customer { get; set; }
 }
