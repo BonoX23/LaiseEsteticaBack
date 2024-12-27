@@ -11,25 +11,25 @@ public class PathologicalHistory : ICustomerEntity
     public Guid Id { get; set; } = Guid.NewGuid();
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public Surgery Surgery { get; set; }
+    public required Surgery Surgery { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public MedicalTreatment MedicalTreatment { get; set; }
+    public required MedicalTreatment MedicalTreatment { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public Medication Medication { get; set; }
+    public required Medication Medication { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public MedicationAllergy MedicationAllergy { get; set; }
+    public required MedicationAllergy MedicationAllergy { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Frequency BowelFunction { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public MenstrualCycle MenstrualCycle { get; set; }
+    public required MenstrualCycle MenstrualCycle { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public Contraceptives Contraceptives { get; set; }
+    public required Contraceptives Contraceptives { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Frequency SuspectedPregnancy { get; set; }
@@ -38,14 +38,14 @@ public class PathologicalHistory : ICustomerEntity
     public BloodPressure BloodPressure { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public Endocrine EndocrineProblems { get; set; }
+    public required Endocrine EndocrineProblems { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public HeartProblems HeartProblems { get; set; }
+    public required HeartProblems HeartProblems { get; set; }
 
     public OncologicalProblem? OncologicalProblemDetails { get; set; }
     public Guid CustomerId { get; set; }
-    public Customer.Entities.Customer Customer { get; set; }
+    public required Customer.Entities.Customer Customer { get; set; }
 
     public void SetReason(Frequency frequency, string reason, ref string? targetProperty, string errorMessage)
     {

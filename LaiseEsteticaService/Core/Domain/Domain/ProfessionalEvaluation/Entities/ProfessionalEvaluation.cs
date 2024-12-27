@@ -19,7 +19,7 @@ public class ProfessionalEvaluation : ICustomerEntity
     public required string? Observations { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigtório.")]
-    public string Objectives { get; set; }
+    public required string Objectives { get; set; }
 
     public IEnumerable<BiometricControl>? BiometricControls { get; set; }
 

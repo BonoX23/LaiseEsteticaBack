@@ -54,5 +54,5 @@ public class User : IdentityUser<Guid>
     public required string Occupation { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public IEnumerable<UserRole> UserRoles { get; set; }
+    public required IEnumerable<UserRole> UserRoles { get; set; }
 }
