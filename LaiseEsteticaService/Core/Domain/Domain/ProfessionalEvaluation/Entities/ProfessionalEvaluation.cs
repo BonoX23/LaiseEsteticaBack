@@ -1,17 +1,35 @@
-﻿namespace Domain.ProfessionalEvaluation.Entities;
+﻿using Domain.Utils;
+using System.ComponentModel.DataAnnotations;
 
-public class ProfessionalEvaluation
+namespace Domain.ProfessionalEvaluation.Entities;
+
+public class ProfessionalEvaluation : ICustomerEntity
 {
-    public Guid Id { get; set; }
+    [Key]
+    public Guid Id { get; set; } = Guid.NewGuid();
+
     public Hypotonia? Hypotonia { get; set; }
+
     public IEnumerable<Feg>? Fegs { get; set; }
+
     public IEnumerable<Adiposity>? Adiposities { get; set; }
+
     public IEnumerable<StretchMarks>? StretchMarks { get; set; }
-    public string? Observations { get; set; }
-    public string Objectives { get; set; }
+
+    public required string? Observations { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    public required string Objectives { get; set; }
+
     public IEnumerable<BiometricControl>? BiometricControls { get; set; }
-    public string TreatmentProgram { get; set; }
-    public IEnumerable<Protocols> Protocols { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    public required string TreatmentProgram { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigtório.")]
+    public required IEnumerable<Protocols> Protocols { get; set; }
+
+    [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Guid CustomerId { get; set; }
-    public Customer.Entities.Customer Customer { get; set; }
+    public required Customer.Entities.Customer Customer { get; set; }
 }
