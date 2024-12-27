@@ -4,5 +4,5 @@ namespace Domain.Identity;
 
 public class Role : IdentityRole<Guid>
 {
-    public List<UserRole> UserRoles { get; set;}
+    public required List<UserRole> UserRoles { get; set;}
 }

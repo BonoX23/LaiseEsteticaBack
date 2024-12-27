@@ -12,7 +12,7 @@ public class Protocols
     public DateTime Date { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
-    public string ProtocolCompleted { get; set; }
+    public required string ProtocolCompleted { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     public Guid ProfessionalEvaluationId { get; set; }

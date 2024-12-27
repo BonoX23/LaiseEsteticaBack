@@ -47,7 +47,7 @@ public class PathologicalHistory : ICustomerEntity
     public Guid CustomerId { get; set; }
     public Customer.Entities.Customer Customer { get; set; }
 
-    public void SetReason(Frequency frequency, string reason, ref string targetProperty, string errorMessage)
+    public void SetReason(Frequency frequency, string reason, ref string? targetProperty, string errorMessage)
     {
         if (frequency == Frequency.Yes)
         {
@@ -81,13 +81,13 @@ public class PathologicalHistory : ICustomerEntity
 
     public void SetOncologicalProblemsReason(string location, string treatmentTime, string treatment)
     {
-        if (OncologicalProblemDetails.OncologicalProblems == Frequency.Yes)
+        if (OncologicalProblemDetails != null && OncologicalProblemDetails.OncologicalProblems == Frequency.Yes)
         {
             if (string.IsNullOrEmpty(OncologicalProblemDetails.Location) ||
                 string.IsNullOrEmpty(OncologicalProblemDetails.TreatmentTime) ||
                 string.IsNullOrEmpty(OncologicalProblemDetails.Treatment))
             {
-                throw new ArgumentException("A causa dos problemas oncológicos são obrigatórios.");
+                throw new ArgumentException("A causa dos problemas oncológicos é obrigatória.");
             }
 
             OncologicalProblemDetails = new OncologicalProblem(location, treatmentTime, treatment);

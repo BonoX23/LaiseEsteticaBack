@@ -17,7 +17,7 @@ public class SocialHistory : ICustomerEntity
     public int PhysicalActivityFrequency { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigtório.")]
-    public string DaysOfTheWeek { get; set; }
+    public required string DaysOfTheWeek { get; set; }
 
     [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Frequency HealthyEating { get; set; }
@@ -33,5 +33,5 @@ public class SocialHistory : ICustomerEntity
 
     [Required(ErrorMessage = "O campo {0} é obrigtório.")]
     public Guid CustomerId { get; set; }
-    public Customer.Entities.Customer Customer { get; set; }
+    public required Customer.Entities.Customer Customer { get; set; }
 }
